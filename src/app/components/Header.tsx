@@ -1,12 +1,14 @@
+"use client"
+
 import Link from "next/link";
+import ThemeSwitch from "./ThemeSwitch";
 
 // import { useDispatch } from 'react-redux';
 // import { login, logout } from '../state/user';
 
 // import { useContext } from "react";
-// import { Menu, MenuItem } from "react-pro-sidebar";
 // import { Typography, Box, useTheme, IconButton } from "@mui/material";
-// import { ColourModeContext, tokens } from "../theme";
+// import { ColourModeContext, tokens } from "../context/theme";
 
 
 const Header = () => {
@@ -17,7 +19,7 @@ const Header = () => {
 	// const dispatch = useDispatch();
 
 	return (
-		<div>
+		<div className="flex justify-between">
 			<div>
 				<div className="logo">
 					{/* <a href="https://github.com/HarleyT/cultivator-incremental">
@@ -25,7 +27,7 @@ const Header = () => {
 					</a> */}
 				</div>
 			</div>
-			<div>
+			<div className="flex">
 				<Link href="/">Home</Link>
                 <Link href="/combat">Combat</Link>
                 <Link href="/character">Character</Link>
@@ -37,8 +39,8 @@ const Header = () => {
                 <Link href="/trainingEnergy">TrainingEnergy</Link>
                 <Link href="/settings">Settings</Link>
 			</div>
-			<div>
-                <button> Dark/Light </button>
+			<div className="flex">
+				<ThemeSwitch />
                 <button> Login </button>
                 <button> Logout </button>
 				{/* <IconButton onClick={colourmode.toggleColourMode}>
@@ -47,8 +49,8 @@ const Header = () => {
 					) : (
 						<span>Light</span>
 					)}
-				</IconButton>
-				<button onClick={() => {
+				</IconButton> */}
+				{/* <button onClick={() => {
 					dispatch(login({name: "Ryathimus"}));
 					}}> Login
 				</button>

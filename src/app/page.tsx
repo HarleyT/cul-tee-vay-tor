@@ -6,7 +6,7 @@
 // import { useQuery } from "@tanstack/react-query";
 
 import TaskManager from "./components/TaskManager";
-// import DayNightCycle from "../components/DayNightCycle";
+import DayNightCycle from "./components/DayNightCycle"
 // import Title from "../components/Title"
 // import Task from "../components/TaskManager/Task";
 
@@ -62,7 +62,7 @@ const Hero = () => {
                         <br />
                         {/* Real Time: <span id="realtimeDisplay">{updatedTime} seconds</span> */}
                     </div>
-                    {/* <DayNightCycle /> */}
+                    <DayNightCycle />
                     <div className="location">
                         <span>Location: </span>
                         <span>{locationLabel}</span>
