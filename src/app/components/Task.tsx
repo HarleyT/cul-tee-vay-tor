@@ -1,15 +1,18 @@
 "use client"
 
 import * as React from 'react';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+
+import {Select, SelectSection, SelectItem} from "@nextui-org/react";
+
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { useState } from 'react';
 
 import { signal } from "@preact/signals";
 
-export default function Task() {
+export default function Task({inlab}) {
   const [task, setTask] = React.useState('');
   const [time, setTime] = React.useState('');
 
@@ -20,46 +23,48 @@ export default function Task() {
     { id: '4', title: "Rest"},
     { id: '5', title: "Explore"}
   ])
- 
-  const times = signal([
-    {id: 1, value: "01:00"},
-    {id: 2, value: "02:00"},
-    {id: 3, value: "03:00"},
-    {id: 4, value: "04:00"},
-    {id: 5, value: "05:00"},
-    {id: 7, value: "07:00"},
-    {id: 6, value: "06:00"},
-    {id: 8, value: "08:00"},
-    {id: 9, value: "09:00"},
-    {id: 10, value: "10:00"},
-    {id: 11, value: "11:00"},
-    {id: 12, value: "12:00"}
-  ])
 
   const tasklabel = tasks.value.map(tasklab => {
-    return <MenuItem key={tasklab.id} value={tasklab.title}>{tasklab.title}</MenuItem>;
+    return <SelectItem key={tasklab.id} value={tasklab.title}>{tasklab.title}</SelectItem>;
     })
 
-  const inputlabel = times.value.map(timelab => {
-    return <div key={timelab.id}>{timelab.value}</div>;
-    })
+  // const times = signal([
+  //   {id: 1, value: "01:00"},
+  //   {id: 2, value: "02:00"},
+  //   {id: 3, value: "03:00"},
+  //   {id: 4, value: "04:00"},
+  //   {id: 5, value: "05:00"},
+  //   {id: 7, value: "07:00"},
+  //   {id: 6, value: "06:00"},
+  //   {id: 8, value: "08:00"},
+  //   {id: 9, value: "09:00"},
+  //   {id: 10, value: "10:00"},
+  //   {id: 11, value: "11:00"},
+  //   {id: 12, value: "12:00"}
+  // ])
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setTask(event.target.value);
-  };
+  // const inputlabel = times.value.map(timelab => {
+  //   return <div key={timelab.id}>{timelab.value}</div>;
+  //   })
+
+  const handleChange = (e: any) => {
+    setTask(e.target.value);
+  }
 
   return (
     <>
-    <FormControl sx={{ m: 1, minWidth: 130 }} size="small">
-      <InputLabel>{inputlabel[0]}</InputLabel>
-      <Select
-        value={task}
-        onChange={handleChange}
-        label={inputlabel[0]}
-      >
-        {tasklabel}
-      </Select>
-    </FormControl>
+      <div className="task">
+        <Select
+          size="sm"
+          variant="faded"
+          items={task}
+          label={inlab}
+          onChange={handleChange}
+          className='max-w-xs'
+        >
+          {tasklabel}
+        </Select>
+      </div>
     </>
   );
 }

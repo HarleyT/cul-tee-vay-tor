@@ -57,20 +57,16 @@ const Hero = () => {
             <div className="container tab" id="main">
                 <div className="box1">
                     {/* <div className="user">Username:{user.name}</div> */}
-                    <div style={{ color: "red" }}>
-                        Lifespan: <span id="lifespanDisplay">70</span> years
-                        <br />
-                        {/* Real Time: <span id="realtimeDisplay">{updatedTime} seconds</span> */}
+                    <div className="title location">
+                        <span>Location: </span>
+                    </div>
+                    <div className="label location">
+                        <span id="locationDisplay">{locationLabel}</span>
                     </div>
                     <DayNightCycle />
-                    <div className="location">
-                        <span>Location: </span>
-                        <span>{locationLabel}</span>
-                    </div>
                 </div>
                 <div className="box2">
                     <div className="planet-selection">
-                        <p></p>
                     </div>
                     <div className="animation-box">
                     </div>
@@ -79,23 +75,48 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className="box3">
-                    <div className="realm">
+                    <div className="title age">
                         <span>Realm: </span>
-                        <span>{realmLabel}</span>
+                        <br />
+                        <span>Lifespan: </span>
+                        <br />
                         <span>Age: </span>
+                    </div>
+                    <div className="label age">
+                        <span>{realmLabel}</span>
+                        <br />
+                        <span>70</span> years
+                        {/* Real Time: <span id="realtimeDisplay">{updatedTime} seconds</span> */}
+                        <br />
                         <span>{ageLabel}</span>
                     </div>
-                    <br />
-                    {/* <Image
+                    <div className="sprite">
+                        Sprite
+                        {/* <Image
                         src="./img/CharacterSpritePH.png"
                         alt="Character Sprite"
                         className="anim-char"
-                    /> */}
-                    <br />
-                    <div className="state">
-                        <span>Physical State</span>
-                        <span>Mental State</span>
-                        <span>Spiritual State</span>
+                        /> */}
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div className="title physical">
+                        <span>Physical</span>
+                    </div>
+                    <div className="title mental">
+                        <span>Mental</span>
+                    </div>
+                    <div className="title spiritual">
+                        <span>Spiritual</span>
+                    </div>
+                    <div className="label physical">
+                        <span>Exhausted</span>
+                    </div>
+                    <div className="label mental">
+                        <span>Meditating</span>
+                    </div>
+                    <div className="label spiritual">
+                        <span>Enlightened</span>
                     </div>
                 </div>                        
             </div>

@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import ThemeSwitch from "./ThemeSwitch";
+import { ThemeSwitcher } from "./ThemeSwitch";
 
 // import { useDispatch } from 'react-redux';
 // import { login, logout } from '../state/user';
@@ -40,7 +40,7 @@ const Header = () => {
                 <Link href="/settings">Settings</Link>
 			</div>
 			<div className="flex">
-				<ThemeSwitch />
+				<ThemeSwitcher />
                 <button> Login </button>
                 <button> Logout </button>
 				{/* <IconButton onClick={colourmode.toggleColourMode}>
