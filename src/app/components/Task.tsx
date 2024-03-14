@@ -12,9 +12,12 @@ import { useState } from 'react';
 
 import { signal } from "@preact/signals";
 
-export default function Task({inlab}) {
+interface Props {
+  inlab: string;
+}
+
+export default function Task ({inlab}: Props) {
   const [task, setTask] = React.useState('');
-  const [time, setTime] = React.useState('');
 
   const tasks = signal([
     { id: '1', title: "Tr. Energy"},
