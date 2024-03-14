@@ -57,14 +57,14 @@ const Hero = () => {
             <div className="container tab" id="main">
                 <div className="box1">
                     {/* <div className="user">Username:{user.name}</div> */}
+                    <div className="day-night-cycle">
+                        <DayNightCycle />
+                    </div>
                     <div className="title location">
                         <span>Location: </span>
                     </div>
                     <div className="label location">
                         <span id="locationDisplay">{locationLabel}</span>
-                    </div>
-                    <div className="day-night-cycle">
-                        <DayNightCycle />
                     </div>
                 </div>
                 <div className="box2">
