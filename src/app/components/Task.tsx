@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function Task ({inlab}: Props) {
-  const [task, setTask] = React.useState('');
+  const [task, setTask] = React.useState<string>('');
 
   const tasks = signal([
     { id: '1', title: "Tr. Energy"},
@@ -28,7 +28,7 @@ export default function Task ({inlab}: Props) {
   ])
 
   const tasklabel = tasks.value.map(tasklab => {
-    return <SelectItem key={tasklab.id} value={tasklab.title}>{tasklab.title}</SelectItem>;
+    return <SelectItem key={tasklab.id} id={tasklab.id}>{tasklab.title}</SelectItem>;
     })
 
   // const times = signal([
@@ -50,7 +50,7 @@ export default function Task ({inlab}: Props) {
   //   return <div key={timelab.id}>{timelab.value}</div>;
   //   })
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setTask(e.target.value);
   }
 

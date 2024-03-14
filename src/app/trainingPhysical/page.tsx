@@ -3,7 +3,7 @@
 // import Title from "../components/Title"
 
 
-const TrainingPhysical = () => {
+const trainingPhysical = () => {
     // const theme = useTheme();
     // const colours = tokens(theme.palette.mode);
     // const colourmode = useContext(ColourModeContext);
@@ -27,4 +27,4 @@ const TrainingPhysical = () => {
     );
 };
 
-export default TrainingPhysical;
+export default trainingPhysical;

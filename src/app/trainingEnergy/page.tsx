@@ -3,7 +3,7 @@
 // import Title from "../components/Title"
 
 
-const TrainingEnergy = () => {
+const trainingEnergy = () => {
     // const theme = useTheme();
     // const colours = tokens(theme.palette.mode);
     // const colourmode = useContext(ColourModeContext);
@@ -27,4 +27,4 @@ const TrainingEnergy = () => {
     );
 };
 
-export default TrainingEnergy;
+export default trainingEnergy;

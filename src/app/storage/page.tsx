@@ -3,7 +3,7 @@
 // import Title from "../components/Title"
 
 
-const Storage = () => {
+const storage = () => {
     // const theme = useTheme();
     // const colours = tokens(theme.palette.mode);
     // const colourmode = useContext(ColourModeContext);
@@ -27,4 +27,4 @@ const Storage = () => {
     );
 };
 
-export default Storage;
+export default storage;

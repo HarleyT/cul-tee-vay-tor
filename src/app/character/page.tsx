@@ -3,7 +3,7 @@
 // import Title from "../components/Title"
 
 
-const Character = () => {
+const character = () => {
     // const theme = useTheme();
     // const colours = tokens(theme.palette.mode);
     // const colourmode = useContext(ColourModeContext);
@@ -27,4 +27,4 @@ const Character = () => {
     );
 };
 
-export default Character;
+export default character;

@@ -63,7 +63,9 @@ const Hero = () => {
                     <div className="label location">
                         <span id="locationDisplay">{locationLabel}</span>
                     </div>
-                    <DayNightCycle />
+                    <div className="day-night-cycle">
+                        <DayNightCycle />
+                    </div>
                 </div>
                 <div className="box2">
                     <div className="planet-selection">

@@ -3,7 +3,7 @@
 // import Title from "../components/Title"
 
 
-const Combat = () => {
+const combat = () => {
     // const theme = useTheme();
     // const colours = tokens(theme.palette.mode);
     // const colourmode = useContext(ColourModeContext);
@@ -27,4 +27,4 @@ const Combat = () => {
     );
 };
 
-export default Combat;
+export default combat;

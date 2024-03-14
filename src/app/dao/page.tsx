@@ -3,7 +3,7 @@
 // import Title from "../components/Title"
 
 
-const Dao = () => {
+const dao = () => {
     // const theme = useTheme();
     // const colours = tokens(theme.palette.mode);
     // const colourmode = useContext(ColourModeContext);
@@ -27,4 +27,4 @@ const Dao = () => {
     );
 };
 
-export default Dao;
+export default dao;

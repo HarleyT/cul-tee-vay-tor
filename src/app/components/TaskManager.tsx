@@ -1,7 +1,12 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import Task from './Task'
 
 const TaskManager = () => {
+  const [high, setHigh] = useState(false);
+
+
 
   return (
     <div className='task-area'>

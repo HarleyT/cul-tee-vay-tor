@@ -19,7 +19,7 @@ const Header = () => {
 	// const dispatch = useDispatch();
 
 	return (
-		<div className="flex justify-between">
+		<div className="flex justify-between navbar">
 			<div>
 				<div className="logo">
 					{/* <a href="https://github.com/HarleyT/cultivator-incremental">

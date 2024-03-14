@@ -3,7 +3,7 @@
 // import Title from "../components/Title"
 
 
-const TrainingSkills = () => {
+const trainingSkills = () => {
     // const theme = useTheme();
     // const colours = tokens(theme.palette.mode);
     // const colourmode = useContext(ColourModeContext);
@@ -27,4 +27,4 @@ const TrainingSkills = () => {
     );
 };
 
-export default TrainingSkills;
+export default trainingSkills;

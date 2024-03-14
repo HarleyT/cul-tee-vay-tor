@@ -3,7 +3,7 @@
 // import Title from "../components/Title"
 
 
-const Exploration = () => {
+const exploration = () => {
     // const theme = useTheme();
     // const colours = tokens(theme.palette.mode);
     // const colourmode = useContext(ColourModeContext);
@@ -27,4 +27,4 @@ const Exploration = () => {
     );
 };
 
-export default Exploration;
+export default exploration;

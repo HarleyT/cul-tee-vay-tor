@@ -5,7 +5,7 @@
 // import Title from "../components/Title"
 
 
-const Settings = () => {
+const settings = () => {
     // const theme = useTheme();
     // const colours = tokens(theme.palette.mode);
     // const colourmode = useContext(ColourModeContext);
@@ -44,4 +44,4 @@ const Settings = () => {
     );
 };
 
-export default Settings;
+export default settings;
