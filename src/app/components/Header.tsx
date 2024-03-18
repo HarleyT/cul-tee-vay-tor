@@ -41,8 +41,6 @@ const Header = () => {
 			</div>
 			<div className="flex">
 				<ThemeSwitcher />
-                <button> Login </button>
-                <button> Logout </button>
 				{/* <IconButton onClick={colourmode.toggleColourMode}>
 					{theme.palette.mode === 'dark' ? (
 						<span>Dark</span>

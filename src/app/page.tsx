@@ -5,8 +5,10 @@
 // import { useSelector } from 'react-redux';
 // import { useQuery } from "@tanstack/react-query";
 
+
 import TaskManager from "./components/TaskManager";
 import DayNightCycle from "./components/DayNightCycle"
+// import { createExtendedTicker } from "./components/Ticker/Ticker";
 // import Title from "../components/Title"
 // import Task from "../components/TaskManager/Task";
 
@@ -14,6 +16,14 @@ import DayNightCycle from "./components/DayNightCycle"
 //     '10sec', '20sec', '30sec', '40sec'
 // ];
 // const planetTime = timers[0];
+
+// const FPS = 60
+// var count = 0
+// const { startTicker, pauseTicker, mutateTickerOptions } = createExtendedTicker(({ ticksToProcess }) => {
+//     count += 1 * (ticksToProcess / FPS) // 1 per sec
+// });
+// mutateTickerOptions({ currentFPS: FPS })
+// startTicker();
 
 const realms = [
     'Mortal', 'Qi Sensing', 'Qi Movement', 'Qi Rotation'
@@ -30,7 +40,10 @@ const locations = [
 ];
 const locationLabel = locations[0];
 
+
+
 const Hero = () => {
+
     // const [time, setTime] = useState(0);
     // const [deltaTime, setDeltaTime] = useState(0);
     // const [colour, setColour] = useState();
