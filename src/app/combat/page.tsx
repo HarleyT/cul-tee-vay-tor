@@ -1,12 +1,13 @@
-// import { Box, IconButton, useTheme } from "@mui/material";
-// import { ColourModeContext, tokens } from "../theme";
-// import Title from "../components/Title"
+import { auth } from "../../../auth";
+// import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 
-const combat = () => {
-    // const theme = useTheme();
-    // const colours = tokens(theme.palette.mode);
-    // const colourmode = useContext(ColourModeContext);
+export default async function combat() {
+    const session = await auth();
+    if (!session || !session.user) {
+        redirect("/api/auth/signin")
+    }
 
     return (
         <>
@@ -26,5 +27,3 @@ const combat = () => {
         </>
     );
 };
-
-export default combat;

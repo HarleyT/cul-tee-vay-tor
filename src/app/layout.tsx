@@ -3,7 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { Providers } from "./providers";
+import { Providers } from "./providers/theme-providers";
+// import { getServerSession } from "next-auth";
+// import NextAuthProvider from "./providers/NextAuthProvider";
+// import { auth } from "@/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,21 +15,25 @@ export const metadata: Metadata = {
   description: "Cultivator Incremental",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const session = await auth();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Providers>
-          <main className="dark">
-            <Header />
-            {children}
-            <Footer />
-          </main>
-        </Providers>
+        {/* <NextAuthProvider> */}
+          <Providers>
+            <main className="dark">
+              <Header />
+              {children}
+              <Footer />
+            </main>
+          </Providers>
+        {/* </NextAuthProvider> */}
       </body>
     </html>
   );

@@ -1,17 +1,12 @@
 "use client"
 
 import * as React from 'react';
-import useTaskStore from '../store/task-store';
-import {Select, SelectItem} from "@nextui-org/react";
-
-// import InputLabel from '@mui/material/InputLabel';
-// import MenuItem from '@mui/material/MenuItem';
-// import FormControl from '@mui/material/FormControl';
-// import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { useState } from 'react';
 
 import { signal } from "@preact/signals";
-import DayNightCycle from './DayNightCycle';
+import {Select, SelectItem} from "@nextui-org/react";
+
+// import useTaskStore from '../store/task-store';
+// import { useState } from 'react';
 
 interface Props {
   inlab: string;
@@ -19,10 +14,24 @@ interface Props {
 
 export default function Action ({inlab}: Props) {
   const [action, setAction] = React.useState<string>('');
-  const toggle = useTaskStore((state) => state.tasks);
-  const high = toggle
 
-  const variant = 'faded';
+  // const times = useTaskStore();
+  // const tasklabel = times.tasks.map((task) => {
+  //   return <div key={task.id}>{task.inUse}</div>})
+
+  // const tabel = times.tasks.map(data => data.inUse)
+
+  // var varianter = 'faded';
+  // if (inlab === "05:00") {
+  //   varianter = 'bordered'
+  // }
+
+  // if (tabel.some(data => data.valueOf() === true)){
+  //   console.log('Highlight');
+  // }
+  // else{
+  //   console.log("Don't Highlight");
+  // }
 
   const actions = signal([
     { id: '1', title: "Tr. Energy"},
@@ -44,10 +53,10 @@ export default function Action ({inlab}: Props) {
     <>
     <div>
     </div>
-      <div>
+      <div className='action'>
         <Select
           size="sm"
-          variant={variant}
+          variant="faded"
           items={action}
           label={inlab}
           onChange={handleChange}

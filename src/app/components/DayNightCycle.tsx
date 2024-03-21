@@ -86,7 +86,7 @@ export default function DayNightCycle() {
   //   return <div key={timelab.id}>{timelab.value}</div>;
   //   })
 
-  const [running, setRunning] = useState(true);
+  const [running, setRunning] = useState(false);
   const [loop, setLoop] = useState(0);
   const [index, setIndex] = useState(0);
   const [time, setTime] = useState(inputlabel[index]);

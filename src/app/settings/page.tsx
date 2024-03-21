@@ -1,22 +1,16 @@
-// import { Box, IconButton, useTheme } from "@mui/material";
-// import { ColourModeContext, tokens } from "../theme";
-// import { useContext } from "react";
-// import gameData from '../global/gamedata';
-// import Title from "../components/Title"
+import { auth } from "../../../auth";
+// import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 
-const settings = () => {
-    // const theme = useTheme();
-    // const colours = tokens(theme.palette.mode);
-    // const colourmode = useContext(ColourModeContext);
+export default async function settings() {
+    const session = await auth();
+    if (!session || !session.user) {
+        redirect("/api/auth/signin")
+    }
 
     return (
         <>
-            {/* <Box>
-                <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Title title="Settings"/>
-                </Box>
-            </Box> */}
             <div className="container tab" id="settings">
                 <div className="box1">
                     {/* <button className="save"
@@ -43,5 +37,3 @@ const settings = () => {
         </>
     );
 };
-
-export default settings;

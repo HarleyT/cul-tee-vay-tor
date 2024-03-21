@@ -2,22 +2,35 @@
 
 import Link from "next/link";
 import { ThemeSwitcher } from "./ThemeSwitch";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 
-// import { useDispatch } from 'react-redux';
-// import { login, logout } from '../state/user';
-
-// import { useContext } from "react";
-// import { Typography, Box, useTheme, IconButton } from "@mui/material";
-// import { ColourModeContext, tokens } from "../context/theme";
+const ACTIVE_ROUTE = "py-1 px-2 text-gray-300 bg-gray-700";
+const INACTIVE_ROUTE = "py-1 px-2 text-gray-300 hover:text-gray-300 hover:bg-gray-700"
 
 
-const Header = () => {
-	// const theme = useTheme();
-	// const colours = tokens(theme.palette.mode);
-	// const colourmode = useContext(ColourModeContext);
+// function AuthButton() {
+// 	const { data: session } = useSession();
 
-	// const dispatch = useDispatch();
+// 	if (session) {
+// 		return (
+// 			<>
+// 				<div>
+// 					{session?.user?.name}
+// 				</div>
+// 				<button onClick={() => signOut()}>Sign Out</button>
+// 			</>
+// 		)
+// 	}
+// 	return (
+// 		<>
+// 			<button onClick={() => signIn()}>Sign In</button>
+// 		</>
+// 	)
+// }
 
+export default function Header() {
+	const pathname = usePathname();
 	return (
 		<div className="flex justify-between navbar">
 			<div>
@@ -28,37 +41,21 @@ const Header = () => {
 				</div>
 			</div>
 			<div className="flex">
-				<Link href="/">Home</Link>
-                <Link href="/combat">Combat</Link>
-                <Link href="/character">Character</Link>
-                <Link href="/storage">Storage</Link>
-                <Link href="/dao">Dao</Link>
-                <Link href="/exploration">Exploration</Link>
-                <Link href="/trainingSkills">TrainingSkills</Link>
-                <Link href="/trainingPhysical">TrainingPhysical</Link>
-                <Link href="/trainingEnergy">TrainingEnergy</Link>
-                <Link href="/settings">Settings</Link>
+				<Link href="/home" className={pathname === "/home" ? ACTIVE_ROUTE : INACTIVE_ROUTE}>Home</Link>
+                <Link href="/combat" className={pathname === "/combat" ? ACTIVE_ROUTE : INACTIVE_ROUTE}>Combat</Link>
+                <Link href="/character" className={pathname === "/character" ? ACTIVE_ROUTE : INACTIVE_ROUTE}>Character</Link>
+                <Link href="/storage" className={pathname === "/storage" ? ACTIVE_ROUTE : INACTIVE_ROUTE}>Storage</Link>
+                <Link href="/dao" className={pathname === "/dao" ? ACTIVE_ROUTE : INACTIVE_ROUTE}>Dao</Link>
+                <Link href="/exploration" className={pathname === "/exploration" ? ACTIVE_ROUTE : INACTIVE_ROUTE}>Exploration</Link>
+                <Link href="/trainingSkills" className={pathname === "/trainingSkills" ? ACTIVE_ROUTE : INACTIVE_ROUTE}>TrainingSkills</Link>
+                <Link href="/trainingPhysical" className={pathname === "/trainingPhysical" ? ACTIVE_ROUTE : INACTIVE_ROUTE}>TrainingPhysical</Link>
+                <Link href="/trainingEnergy" className={pathname === "/trainingEnergy" ? ACTIVE_ROUTE : INACTIVE_ROUTE}>TrainingEnergy</Link>
+                <Link href="/settings" className={pathname === "/settings" ? ACTIVE_ROUTE : INACTIVE_ROUTE}>Settings</Link>
 			</div>
 			<div className="flex">
 				<ThemeSwitcher />
-				{/* <IconButton onClick={colourmode.toggleColourMode}>
-					{theme.palette.mode === 'dark' ? (
-						<span>Dark</span>
-					) : (
-						<span>Light</span>
-					)}
-				</IconButton> */}
-				{/* <button onClick={() => {
-					dispatch(login({name: "Ryathimus"}));
-					}}> Login
-				</button>
-				<button onClick={() => {
-					dispatch(logout());
-					}}> Logout
-				</button> */}
+				{/* <AuthButton /> */}
 			</div>
 		</div>
 	);
 };
-
-export default Header;
