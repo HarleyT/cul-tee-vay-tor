@@ -1,14 +1,5 @@
-// import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
-import type { Metadata } from "next";
-import { auth } from "../../../auth";
-
 import TaskManager from "../components/TaskManager";
 import DayNightCycle from "../components/DayNightCycle";
-
-export const metadata: Metadata = {
-    title: 'Home',
-}
 
 const realms = [
     'Mortal', 'Qi Sensing', 'Qi Movement', 'Qi Rotation'
@@ -25,11 +16,7 @@ const locations = [
 ];
 const locationLabel = locations[0];
 
-export default async function home() {
-    // const session = await auth();
-    // if (!session || !session.user) {
-    //     redirect("/api/auth/signin")
-    // }
+export default function home() {
 
     return (
         <>
@@ -44,9 +31,6 @@ export default async function home() {
                     <div className="label location">
                         <span id="locationDisplay">{locationLabel}</span>
                     </div>
-                    <pre>
-                        {/* {JSON.stringify(session, null, 2)} */}
-                    </pre>
                 </div>
                 <div className="box2">
                     <div className="planet-selection">

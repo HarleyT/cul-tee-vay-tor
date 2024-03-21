@@ -1,17 +1,7 @@
 
 import * as React from "react";
-// import Account from "./components/Account";
-// import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
-import { auth } from "../../auth";
 
 export default async function landing() {
-    // const session = await auth();
-    // if (!session || !session.user) {
-    //     null
-    // } else {
-    //     redirect("/home")
-    // }
 
     return (
         <>

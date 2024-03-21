@@ -1,13 +1,5 @@
-import { auth } from "../../../auth";
-// import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
+export default function trainingPhysical() {
 
-
-export default async function trainingPhysical() {
-    const session = await auth();
-    if (!session || !session.user) {
-        redirect("/api/auth/signin")
-    }
 
     return (
         <>
