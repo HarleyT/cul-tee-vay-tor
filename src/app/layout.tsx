@@ -5,8 +5,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Providers } from "./providers/theme-providers";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "cul-TEE-vay-TOR",
   description: "Cultivator Incremental",
@@ -20,14 +18,12 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-          <Providers>
-            <main className="dark">
-              <Header />
-              {children}
-              <Footer />
-            </main>
-          </Providers>
+      <body>
+        <Providers>
+          <Header />
+            {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

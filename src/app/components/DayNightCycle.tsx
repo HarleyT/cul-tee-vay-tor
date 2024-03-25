@@ -1,10 +1,9 @@
 "use client"
 
 import { useState, useEffect, useReducer } from "react";
-import {Button} from "@nextui-org/react";
 import { BsFillPlayFill, BsPauseFill } from "react-icons/bs";
 import { signal } from "@preact/signals";
-import Task from "./Action";
+
 
 import useTaskStore from '../store/task-store'
 
@@ -136,14 +135,14 @@ export default function DayNightCycle() {
           <span>{loop} Days</span>
         </div>
           {!running && (
-          <Button className="play" color="primary" variant="bordered" onClick={playButton}>
+          <button className="play" color="primary" onClick={playButton}>
             Play
-          </Button>
+          </button>
           )}
           {running && (
-          <Button className="pause" color="primary" variant="ghost" onClick={pauseButton}>
+          <button className="pause" color="primary" onClick={pauseButton}>
             Pause
-          </Button>
+          </button>
           )}
           {/* <button onClick={earth}>earth</button>
           <button onClick={mars}>mars</button>

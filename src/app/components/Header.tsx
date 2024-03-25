@@ -1,8 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { ThemeSwitcher } from "./ThemeSwitch";
-import { signIn, signOut, useSession } from "next-auth/react";
+// import { ThemeSwitcher } from "./ThemeSwitch";
 import { usePathname } from "next/navigation";
 
 const ACTIVE_ROUTE = "py-1 px-2 text-gray-300 bg-gray-700";
@@ -53,8 +52,7 @@ export default function Header() {
                 <Link href="/settings" className={pathname === "/settings" ? ACTIVE_ROUTE : INACTIVE_ROUTE}>Settings</Link>
 			</div>
 			<div className="flex">
-				<ThemeSwitcher />
-				{/* <AuthButton /> */}
+				{/* <ThemeSwitcher /> */}
 			</div>
 		</div>
 	);

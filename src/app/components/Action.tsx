@@ -5,6 +5,7 @@ import * as React from 'react';
 import { signal } from "@preact/signals";
 import {Select, SelectItem} from "@nextui-org/react";
 
+
 // import useTaskStore from '../store/task-store';
 // import { useState } from 'react';
 
@@ -42,13 +43,12 @@ export default function Action ({inlab}: Props) {
   ])
 
   const actionlabel = actions.value.map(actionlab => {
-    return <SelectItem key={actionlab.id} id={actionlab.id}>{actionlab.title}</SelectItem>;
+    return <SelectItem key={actionlab.id} value={actionlab.title}>{actionlab.title}</SelectItem>;
     })
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (e: {target: {value: string}}) => {
     setAction(e.target.value);
   }
-
   return (
     <>
     <div>
