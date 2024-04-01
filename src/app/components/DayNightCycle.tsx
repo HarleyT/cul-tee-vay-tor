@@ -17,33 +17,6 @@ import useTaskStore from '../store/task-store'
 //   )
 // }
 
-  // const times = signal([
-  //   {id: 1, value: "01:00"},
-  //   {id: 2, value: "02:00"},
-  //   {id: 3, value: "03:00"},
-  //   {id: 4, value: "04:00"},
-  //   {id: 5, value: "05:00"},
-  //   {id: 7, value: "06:00"},
-  //   {id: 6, value: "07:00"},
-  //   {id: 8, value: "08:00"},
-  //   {id: 9, value: "09:00"},
-  //   {id: 10, value: "10:00"},
-  //   {id: 11, value: "11:00"},
-  //   {id: 12, value: "12:00"},
-  //   {id: 13, value: "13:00"},
-  //   {id: 14, value: "14:00"},
-  //   {id: 15, value: "15:00"},
-  //   {id: 16, value: "16:00"},
-  //   {id: 17, value: "17:00"},
-  //   {id: 18, value: "18:00"},
-  //   {id: 19, value: "19:00"},
-  //   {id: 20, value: "20:00"},
-  //   {id: 21, value: "21:00"},
-  //   {id: 22, value: "22:00"},
-  //   {id: 23, value: "23:00"},
-  //   {id: 24, value: "24:00"}
-  // ])
-
   // const inputlabel = times.value.map(timelab => {
   //   return <div key={timelab.id}>{timelab.value}</div>;
   //   })
@@ -70,6 +43,7 @@ import useTaskStore from '../store/task-store'
 
 export default function DayNightCycle() {
   const times = useTaskStore();
+  
   // const location = useContext(LocationContextProvider);
 
   // const [state, dispatch] = useReducer(reducer, {planet: 24})
@@ -78,17 +52,35 @@ export default function DayNightCycle() {
 //         <Task inlab={task.value} />
 //         </div>))}
 
+  // const tabel = times.tasks.map(data => data.inUse)
+
+  
+
+  const uselabel = times.tasks.map((task) => {
+    return <div key={task.id}>{task.inUse}</div>})
+
+  // if (tabel.some(data => data.valueOf() === true)){
+  //   console.log('Highlight');
+  // }
+  // else{
+  //   console.log("Don't Highlight");
+  // }
+
   const inputlabel = times.tasks.map((task) => {
   return <div key={task.id}>{task.value}</div>})
 
-  // const inputlabel = times.map(timelab => {
-  //   return <div key={timelab.id}>{timelab.value}</div>;
-  //   })
+  const inputkey = times.tasks.map((task) => {
+    return <div key={task.id}>{task.id}</div>})
+
 
   const [running, setRunning] = useState(false);
   const [loop, setLoop] = useState(0);
   const [index, setIndex] = useState(0);
+  const [key, setKey] = useState(inputkey[index])
   const [time, setTime] = useState(inputlabel[index]);
+  const [high, setHigh] = useState(uselabel[index]);
+  const [use, setUse] = useState(times.toggle(index, true));
+
 
   // function earth() {
   //   dispatch({ type: ACTIONS.EARTH })
@@ -103,19 +95,23 @@ export default function DayNightCycle() {
     let interval: any;
     if (running) {
       interval = setInterval(() => {
+        // console.log(use)
+        // console.log(high)
         if (index === 24) {
-        setIndex(0);
-        setLoop(loop + 1);
+          setIndex(0);
+          setLoop(loop + 1);
         } else {
           setIndex(index + 1);
-          setTime(inputlabel[index])
+          setTime(inputlabel[index]);
+          setHigh(uselabel[index]);
+          // console.log(high)
         }
       }, 1000);
     }
     return () => {
       clearInterval(interval);
     };
-  }, [index, loop, running, inputlabel]);
+  }, [index, loop, running, inputlabel, use, uselabel]);
 
   function playButton(){
       setRunning(true);

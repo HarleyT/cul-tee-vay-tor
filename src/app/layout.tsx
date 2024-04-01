@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Providers } from "./providers/theme-providers";
 
+const inter = Inter({ subsets: ['latin']})
+
 export const metadata: Metadata = {
   title: "cul-TEE-vay-TOR",
   description: "Cultivator Incremental",

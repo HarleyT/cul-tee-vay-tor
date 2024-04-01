@@ -6,26 +6,31 @@ import { signal } from "@preact/signals";
 import {Select, SelectItem} from "@nextui-org/react";
 
 
-// import useTaskStore from '../store/task-store';
+import useTaskStore from '../store/task-store';
 // import { useState } from 'react';
 
 interface Props {
   inlab: string;
 }
 
+var highlight = "faded"
+
 export default function Action ({inlab}: Props) {
   const [action, setAction] = React.useState<string>('');
 
-  // const times = useTaskStore();
-  // const tasklabel = times.tasks.map((task) => {
-  //   return <div key={task.id}>{task.inUse}</div>})
+  const times = useTaskStore();
+  const uselabel = times.tasks.map((task) => {
+    return <div key={task.id}>{task.inUse}</div>})
+
+  uselabel.forEach(element => {
+    if (element.props === true) {
+      highlight = "ghost"
+    } else {
+      highlight = "faded"
+    }
+  });
 
   // const tabel = times.tasks.map(data => data.inUse)
-
-  // var varianter = 'faded';
-  // if (inlab === "05:00") {
-  //   varianter = 'bordered'
-  // }
 
   // if (tabel.some(data => data.valueOf() === true)){
   //   console.log('Highlight');
@@ -52,6 +57,7 @@ export default function Action ({inlab}: Props) {
   return (
     <>
     <div>
+      {highlight}
     </div>
       <div className='action'>
         <Select
