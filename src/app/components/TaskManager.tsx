@@ -1,18 +1,20 @@
 "use client"
 
 import React from 'react'
-import useTaskStore from '../store/task-store'
+import { usePlanetStore } from '../store/task-store'
 import Action from './Action'
+import useTimer from '../hooks/useTimer'
 
 const TaskManager = () => {
-  const time = useTaskStore();
+  const planets = usePlanetStore();
+
+  
 
   return (
     <div className='task-area'>
-      {time.tasks.map((task) => (
-        <div key={task.id}>
-        <Action inlab={task.value} />
-        </div>))}
+      {planets.earth.map((earth) => (
+        <div key={earth.id}>
+        <Action inlab={earth.value} /></div>))}
     </div>
   )
 }

@@ -3,34 +3,18 @@
 import Link from "next/link";
 // import { ThemeSwitcher } from "./ThemeSwitch";
 import { usePathname } from "next/navigation";
+import TimeBar from "./TimeBar";
 
 const ACTIVE_ROUTE = "py-1 px-2 text-gray-300 bg-gray-700";
 const INACTIVE_ROUTE = "py-1 px-2 text-gray-300 hover:text-gray-300 hover:bg-gray-700"
 
 
-// function AuthButton() {
-// 	const { data: session } = useSession();
-
-// 	if (session) {
-// 		return (
-// 			<>
-// 				<div>
-// 					{session?.user?.name}
-// 				</div>
-// 				<button onClick={() => signOut()}>Sign Out</button>
-// 			</>
-// 		)
-// 	}
-// 	return (
-// 		<>
-// 			<button onClick={() => signIn()}>Sign In</button>
-// 		</>
-// 	)
-// }
-
 export default function Header() {
 	const pathname = usePathname();
+
+	
 	return (
+		<>
 		<div className="flex justify-between navbar">
 			<div>
 				<div className="logo">
@@ -55,5 +39,7 @@ export default function Header() {
 				{/* <ThemeSwitcher /> */}
 			</div>
 		</div>
+		<TimeBar />
+		</>
 	);
 };

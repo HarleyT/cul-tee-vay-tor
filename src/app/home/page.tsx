@@ -1,5 +1,7 @@
 import TaskManager from "../components/TaskManager";
 import DayNightCycle from "../components/DayNightCycle";
+import useTimer from "../hooks/useTimer";
+
 
 const realms = [
     'Mortal', 'Qi Sensing', 'Qi Movement', 'Qi Rotation'
@@ -17,6 +19,7 @@ const locations = [
 const locationLabel = locations[0];
 
 export default function home() {
+    useTimer;
 
     return (
         <>

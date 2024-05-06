@@ -6,29 +6,27 @@ import { signal } from "@preact/signals";
 import {Select, SelectItem} from "@nextui-org/react";
 
 
-import useTaskStore from '../store/task-store';
+// import useTaskStore from '../store/task-store';
 // import { useState } from 'react';
 
 interface Props {
   inlab: string;
 }
 
-var highlight = "faded"
-
 export default function Action ({inlab}: Props) {
   const [action, setAction] = React.useState<string>('');
 
-  const times = useTaskStore();
-  const uselabel = times.tasks.map((task) => {
-    return <div key={task.id}>{task.inUse}</div>})
+  // const times = useTaskStore();
+  // const uselabel = times.tasks.map((task) => {
+  //   return <div key={task.id}>{task.inUse}</div>})
 
-  uselabel.forEach(element => {
-    if (element.props === true) {
-      highlight = "ghost"
-    } else {
-      highlight = "faded"
-    }
-  });
+  // uselabel.forEach(element => {
+  //   if (element.props === true) {
+  //     highlight = "ghost"
+  //   } else {
+  //     highlight = "faded"
+  //   }
+  // });
 
   // const tabel = times.tasks.map(data => data.inUse)
 
@@ -56,21 +54,21 @@ export default function Action ({inlab}: Props) {
   }
   return (
     <>
-    <div>
+    {/* <div>
       {highlight}
+    </div> */}
+    <div className='action'>
+      <Select
+        size="sm"
+        variant="faded"
+        items={action}
+        label={inlab}
+        onChange={handleChange}
+        className='max-w-xs action-selection'
+      >
+        {actionlabel}
+      </Select>
     </div>
-      <div className='action'>
-        <Select
-          size="sm"
-          variant="faded"
-          items={action}
-          label={inlab}
-          onChange={handleChange}
-          className='max-w-xs'
-        >
-          {actionlabel}
-        </Select>
-      </div>
     </>
   );
 }

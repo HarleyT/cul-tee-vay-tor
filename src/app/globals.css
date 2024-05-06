@@ -19,14 +19,32 @@ body,
 	font-family: 'Courier New', Courier, monospace;
 	font-size: small;
 	padding: 10px 10px;
-	cursor: pointer;
 	opacity: 0.6;
 	background: grey;
 	border: 0;
 	outline: 0;
 	border-bottom: 2px solid transparent;
 	transition: ease border-bottom 250ms;
-} 
+}
+
+.nav-hours {
+	display: flex;
+	width: full;
+	text-decoration: none;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: small;
+	opacity: 0.6;
+	background: grey;
+}
+
+.nav-steps {
+	margin: 0 10px 0 20px;
+}
+
+.progress {
+	padding: 5px;
+	margin: 10px;
+}
 
 footer {
 	display: flex;
@@ -119,6 +137,10 @@ footer {
 	width: 130px;
 }
 
+.action-selection:active {
+	background-color: green;
+}
+
 /* Box 3 Container */
 .sprite {
 	display: grid;
@@ -131,31 +153,45 @@ footer {
 	border-style: solid;
 }
 
-/* .task {
-	padding:0%;
-	width: 80px;
-	height: 40px;
-	background: black;
-} */
-
-
-/* .btn{
-	display: block;
-	margin: 5rem auto;
-	border: none;
-	border-radius: 3px;     
-	outline: none;
-	width: 100px;
-	height: 40px;
-	background-color: #937DC2;
-	transition: box-shadow 0.5s;
-	font-size: 16px;
-	font-family:arial;
-	color: #fff;
-	cursor: pointer;
+.steps-container {
+display: flex;
+width: 100%;
+align-items: center;
+justify-content: space-between;
+position: relative;
+margin: 0 10px 0 10px;
 }
-
-.btn:hover{
-	-webkit-box-shadow: inset 100px 0 0 0 #7c54d1;
-    box-shadow: inset 100px 0 0 0 #7c54d1;
-} */
+.steps-container .step-circle {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 20px;
+width: 20px;
+color: #999;
+font-size: 12px;
+font-weight: 500;
+border-radius: 50%;
+background: #fff;
+border: 4px solid #e0e0e0;
+transition: all 200ms ease;
+transition-delay: 0s;
+}
+.steps-container .step-circle.active {
+transition-delay: 100ms;
+border-color: #4070f4;
+color: #4070f4;
+}
+.steps-container .progress-bar-container {
+position: absolute;
+height: 4px;
+width: 100%;
+background: #e0e0e0;
+z-index: -1;
+}
+.progress-bar-container .progress-indicator {
+position: absolute;
+height: 100%;
+width: 0%;
+background: #4070f4;
+transition: all 300ms ease;
+}
