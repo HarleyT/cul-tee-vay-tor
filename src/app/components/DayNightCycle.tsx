@@ -26,8 +26,8 @@ import useTimer from "../hooks/useTimer";
 // }
 
 export default function DayNightCycle() {
-  const earth = useTimer().earth;
-  const loop = useTimer().loop;
+  // const earth = useTimer().earth;
+  // const loop = useTimer().loop;
 
   // const [state, dispatch] = useReducer(reducer, {planet: 24})
 //       {time.tasks.map((task) => (
@@ -49,12 +49,12 @@ export default function DayNightCycle() {
   return (
     <>
       <div className="daynightcycle">
-        <div className="timer">
+        {/* <div className="timer">
           <span>{earth}</span>
         </div>
         <div className="loop">
           <span>{loop} Days</span>
-        </div>
+        </div> */}
           {/* <button onClick={earth}>earth</button>
           <button onClick={mars}>mars</button>
           <span>{state.planet}</span>

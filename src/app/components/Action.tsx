@@ -1,41 +1,22 @@
 "use client"
 
-import * as React from 'react';
-
 import { signal } from "@preact/signals";
 import {Select, SelectItem} from "@nextui-org/react";
-
-
-// import useTaskStore from '../store/task-store';
-// import { useState } from 'react';
+import useTimer from '../hooks/useTimer';
+import { useState } from "react";
+import ReactDOMServer from 'react-dom/server';
 
 interface Props {
   inlab: string;
 }
 
 export default function Action ({inlab}: Props) {
-  const [action, setAction] = React.useState<string>('');
+  const [action, setAction] = useState<string>('');
 
-  // const times = useTaskStore();
-  // const uselabel = times.tasks.map((task) => {
-  //   return <div key={task.id}>{task.inUse}</div>})
+  var hours = useTimer().planetIn;
 
-  // uselabel.forEach(element => {
-  //   if (element.props === true) {
-  //     highlight = "ghost"
-  //   } else {
-  //     highlight = "faded"
-  //   }
-  // });
-
-  // const tabel = times.tasks.map(data => data.inUse)
-
-  // if (tabel.some(data => data.valueOf() === true)){
-  //   console.log('Highlight');
-  // }
-  // else{
-  //   console.log("Don't Highlight");
-  // }
+  var hourString = ReactDOMServer.renderToString(hours)
+  const labelString = ("<div>" + inlab + "</div>")
 
   const actions = signal([
     { id: '1', title: "Tr. Energy"},
@@ -52,19 +33,19 @@ export default function Action ({inlab}: Props) {
   const handleChange = (e: {target: {value: string}}) => {
     setAction(e.target.value);
   }
+
   return (
     <>
-    {/* <div>
-      {highlight}
-    </div> */}
-    <div className='action'>
+    <div className='action'
+    >
       <Select
         size="sm"
-        variant="faded"
         items={action}
         label={inlab}
+        variant="faded"
         onChange={handleChange}
         className='max-w-xs action-selection'
+        style={ (hourString == labelString) ? {background:"green"} : {}}
       >
         {actionlabel}
       </Select>

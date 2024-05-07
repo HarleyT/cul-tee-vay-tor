@@ -1,7 +1,7 @@
 "use client"
 
 import { create } from "zustand"
-import { persist } from "zustand/middleware"
+import { persist, createJSONStorage } from "zustand/middleware"
 
 export interface Task {
     id: number;
@@ -9,19 +9,27 @@ export interface Task {
 }
 
 type PlanetStore = {
-    planet: Task[];
+    planet: string;
+    selectEarth: () => void;
+    selectMars: () => void;
     earth: Task[];
     earthTime: number;
+    earthIndex: number;
     mars: Task[];
     marsTime: number;
+    marsIndex: number,
     running: boolean;
 }
 
-export const usePlanetStore = create<PlanetStore>((set) => ({
-    planet: [
-        {id: 1, value: "earth"},
-        {id: 2, value: "mars"},
-    ],
+export const usePlanetStore = create<PlanetStore>(
+        (set) => ({
+    planet: "earth",
+    selectEarth: () => {
+        set((state) => ({ planet: "earth"}))
+    },
+    selectMars: () => {
+        set((state) => ({ planet: "mars"}))
+    },
     earth: [
         {id: 1, value: "00:00"},
         {id: 2, value: "01:00"},
@@ -49,6 +57,7 @@ export const usePlanetStore = create<PlanetStore>((set) => ({
         {id: 24, value: "23:00"}
     ],
     earthTime: 1000,
+    earthIndex: 24,
     mars: [
         {id: 1, value: "00:00"},
         {id: 2, value: "01:00"},
@@ -62,7 +71,8 @@ export const usePlanetStore = create<PlanetStore>((set) => ({
         {id: 10, value: "09:00"},
         {id: 11, value: "10:00"}
     ],
-    marsTime: 3000,
+    marsTime: 500,
+    marsIndex: 11,
     running: true,
 }))
 

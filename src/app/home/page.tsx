@@ -1,5 +1,5 @@
+import Animation from "../components/Animation";
 import TaskManager from "../components/TaskManager";
-import DayNightCycle from "../components/DayNightCycle";
 import useTimer from "../hooks/useTimer";
 
 
@@ -25,9 +25,6 @@ export default function home() {
         <>
             <div className="container tab" id="main">
                 <div className="box1">
-                    <div className="day-night-cycle">
-                        <DayNightCycle />
-                    </div>
                     <div className="title location">
                         <span>Location: </span>
                     </div>
@@ -39,6 +36,7 @@ export default function home() {
                     <div className="planet-selection">
                     </div>
                     <div className="animation-box">
+                        <Animation />
                     </div>
                     <div className="task-manager">
                         <TaskManager />
@@ -73,17 +71,17 @@ export default function home() {
                     <div className="title physical">
                         <span>Physical</span>
                     </div>
-                    <div className="title mental">
-                        <span>Mental</span>
-                    </div>
-                    <div className="title spiritual">
-                        <span>Spiritual</span>
-                    </div>
                     <div className="label physical">
                         <span>Exhausted</span>
                     </div>
+                    <div className="title mental">
+                        <span>Mental</span>
+                    </div>
                     <div className="label mental">
                         <span>Meditating</span>
+                    </div>
+                    <div className="title spiritual">
+                        <span>Spiritual</span>
                     </div>
                     <div className="label spiritual">
                         <span>Enlightened</span>

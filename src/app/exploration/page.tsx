@@ -1,16 +1,7 @@
-"use client"
-
-import usePlanetStore from "../store/task-store";
+import { PlanetSelector } from "../components/PlanetSelector";
 
 export default function exploration() {
-
-    function earth(){
-        return console.log("Earth")
-    }
-
-    function mars(){
-        return console.log("Mars")
-    }
+    
     return (
         <>
             {/* <Box>
@@ -21,8 +12,7 @@ export default function exploration() {
             <div className="container tab" id="exploration">
                 <div className="box1">
                     <div>
-                        <button onClick={earth}>Earth</button>
-                        <button onClick={mars}>Mars</button>
+                        <PlanetSelector />
                     </div>
                 </div>
                 <div className="box2">

@@ -1,14 +1,23 @@
 "use client"
 
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
 import usePlanetStore from "../store/task-store";
 import useTimer from "../hooks/useTimer";  
+import { IconButton } from '@mui/material';
 
 export default function TimeBar() {
-    const value = useTimer().index;
+    const planetName = useTimer().planetName;
 
-    const length = useTimer().earthIndex;
+    const hours = useTimer().planetIn;
 
-    const hoursint = [0 ,1 ,2 ,3 ,4];
+    const indexvalue = useTimer().index;
+
+    const indexlength = useTimer().planetIndex;
+
+    const hoursint = Array.from({ length: indexlength }, (value, index) => index);
+
+    const days = useTimer().loop;
 
     function playButton(){
         if (usePlanetStore.getState().running) {
@@ -20,14 +29,22 @@ export default function TimeBar() {
 
 	return (
 		<>
+        <div className="w-full text-center">
+            {planetName}
+        </div>
 		<div className="nav-hours">
-            <button className="button" onClick={playButton}>play<br/>pause</button>
+            <IconButton onClick={playButton}>
+                {usePlanetStore.getState().running === true ? (
+                <PlayArrowIcon />
+            ) : (
+                <PauseIcon />
+            )}</IconButton>
             <div className="steps-container">
                 {hoursint.map((stepNumber) => (
                     <span key={stepNumber}>
                     {stepNumber > 1 && <div className="line"></div>}
                     <span
-                        className={`step-circle ${stepNumber === value ? 'active' : ''}`}
+                        className={`step-circle ${stepNumber === indexvalue ? 'active' : ''}`}
                     >
                         {stepNumber}
                     </span>
@@ -37,10 +54,14 @@ export default function TimeBar() {
                     <span
                     className="progress-indicator"
                     style={{
-                        width: `${((value) / (length-1)) * 100}%`,
+                        width: `${((indexvalue) / (indexlength-1)) * 100}%`,
                     }}
                     ></span>
                 </div>
+            </div>
+            <div className="p-2">
+                {hours}
+                {days} Days
             </div>
 		</div>
 		</>

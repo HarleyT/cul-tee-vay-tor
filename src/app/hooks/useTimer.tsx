@@ -6,80 +6,54 @@ import usePlanetStore from '../store/task-store'
 export default function useTimer() {
     const store = usePlanetStore();
 
-    // Earth //
-    const earthHours = store.earth.map((earth) => {
-    return <div key={earth.id}>{earth.value}</div>});
-
-    const earthTime = usePlanetStore.getState().earthTime;
-
-    const earthIndex = Object.keys(earthHours).length;
-
-    // Mars //
-    const marsHours = store.mars.map((mars) => {
-        return <div key={mars.id}>{mars.value}</div>});
-
-    const marsTime = usePlanetStore.getState().marsTime;
-
-    const marsIndex = Object.keys(marsHours).length;
-
     // Common //
     const running = usePlanetStore.getState().running;
+    var planetName = usePlanetStore.getState().planet;
+    var planetTime = usePlanetStore.getState().earthTime;
+    var planetHours = store.earth.map((earth) => {
+        return <div key={earth.id}>{earth.value}</div>});
+    var planetIndex = usePlanetStore.getState().earthIndex;
     const [loop, setLoop] = useState(0);
     const [index, setIndex] = useState(0);
-    const planet = usePlanetStore.getState().planet[index];
 
     // Change Planet //
-    // if (planet === "earth") {
-    //     (null)
-    // };
+    if (planetName === "mars") {
+        var planetTime = usePlanetStore.getState().marsTime;
+        var planetHours = store.mars.map((mars) => {
+            return <div key={mars.id}>{mars.value}</div>});
+        var planetIndex = usePlanetStore.getState().marsIndex;
+    } else if (planetName === "earth") {
+        var planetTime = usePlanetStore.getState().earthTime;
+        var planetHours = store.earth.map((earth) => {
+            return <div key={earth.id}>{earth.value}</div>});
+        var planetIndex = usePlanetStore.getState().earthIndex;
+    };
 
     // Planet Indexes //
-    const [earth, setEarth] = useState(earthHours[index]);
-    const [mars, setMars] = useState(marsHours[index]);
+    const [planetIn, setPlanetIn] = useState(planetHours[index]);
 
     // Earth Hours //
     useEffect(() => {
         let interval: any;
         if (running) {
         interval = setInterval(() => {
-            if (index === earthIndex) {
+            if (index === planetIndex) {
             setIndex(0);
             setLoop(loop + 1);
             } else {
             setIndex(index + 1);
-            setEarth(earthHours[index]);
+            setPlanetIn(planetHours[index]);
             }
-        }, earthTime);
+        }, planetTime);
         }
         return () => {
         clearInterval(interval);
         };
     }, [index, loop, running,
-        earthHours, earthIndex, earthTime]);
-
-    // Mars Hours //
-    useEffect(() => {
-        let interval: any;
-        if (running) {
-        interval = setInterval(() => {
-            if (index === marsIndex) {
-            setIndex(0);
-            setLoop(loop + 1);
-            } else {
-            setIndex(index + 1);
-            setMars(marsHours[index]);
-            }
-        }, marsTime);
-        }
-        return () => {
-        clearInterval(interval);
-        };
-    }, [index, loop, running,
-        marsHours, marsIndex, marsTime]);
+        planetHours, planetIndex, planetTime]);
 
     // Planet Data //
     return {index, loop,
-            earth, earthIndex,
-            mars, marsIndex};
+            planetIn, planetIndex, planetHours, planetName};
 
 }

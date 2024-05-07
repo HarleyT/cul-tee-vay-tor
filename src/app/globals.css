@@ -9,8 +9,8 @@ body,
 #root,
 .app,
 .content {
+	width: 1080px;
 	height: 100%;
-	width: 100%;
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -61,15 +61,11 @@ footer {
 	display: flex;
 	margin: 0 auto;
 	padding: 1rem;
-	border: green;
-	border-width: 5px;
-	border-style: solid;
-	max-height: 800px;
 }
 
 .tab {
 	display: grid;
-	grid-template-columns: repeat(10, 1fr);
+	grid-template-columns: repeat(9, 1fr);
 	grid-template-rows: repeat(12, 0.5fr);
 	padding: 1rem;
 }
@@ -110,6 +106,13 @@ footer {
 	border-style: solid;
 }
 
+.animation {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+}
+
 /* Box 2 Container */
 .task-manager {
 	display: grid;
@@ -117,9 +120,9 @@ footer {
 	grid-row: 6/11;
 	grid-template-columns: subgrid;
 	grid-template-rows: subgrid;
-	border-width: 2px;
+	/* border-width: 2px;
 	border-color: #333;
-	border-style: groove;
+	border-style: groove; */
 	padding: 1rem;
 }
 
@@ -134,12 +137,12 @@ footer {
 
 /* Box 2 Container */
 .action {
-	width: 130px;
+	min-width: 130px;
 }
 
-.action-selection:active {
+/* .action-selection:focus {
 	background-color: green;
-}
+} */
 
 /* Box 3 Container */
 .sprite {
@@ -191,7 +194,7 @@ z-index: -1;
 .progress-bar-container .progress-indicator {
 position: absolute;
 height: 100%;
-width: 0%;
+max-width: 100%;
 background: #4070f4;
-transition: all 300ms ease;
+transition: all 1000ms ease;
 }
