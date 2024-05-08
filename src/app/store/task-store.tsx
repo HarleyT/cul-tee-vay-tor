@@ -76,4 +76,25 @@ export const usePlanetStore = create<PlanetStore>(
     running: true,
 }))
 
-export default usePlanetStore
+type ActionStore = {
+    action: string;
+    actionList: Task[];
+    selectAction: () => void;
+}
+
+export const useActionStore = create<ActionStore>(
+    (set) => ({
+    action: "Inactive",
+    actionList: [
+        { id: 1, value: "Tr. Energy"},
+        { id: 2, value: "Tr. Physical"},
+        { id: 3, value: "Meditate"},
+        { id: 4, value: "Rest"},
+        { id: 5, value: "Explore"}
+    ],
+    selectAction: () => {
+        set((state) => ({}))
+    },
+    }))
+
+export default usePlanetStore; useActionStore;

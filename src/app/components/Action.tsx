@@ -3,36 +3,53 @@
 import { signal } from "@preact/signals";
 import {Select, SelectItem} from "@nextui-org/react";
 import useTimer from '../hooks/useTimer';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactDOMServer from 'react-dom/server';
+import { useActionStore } from "../store/task-store";
 
 interface Props {
   inlab: string;
 }
 
 export default function Action ({inlab}: Props) {
-  const [action, setAction] = useState<string>('');
+  const actions = useActionStore.getState()
+  // const [action, setAction] = useState<string>('');
+
+  var actionlabel = actions.actionList.map((list) => {
+        return <SelectItem key={list.id} value={list.value}>{list.value}</SelectItem>
+  })
 
   var hours = useTimer().planetIn;
 
   var hourString = ReactDOMServer.renderToString(hours)
   const labelString = ("<div>" + inlab + "</div>")
 
-  const actions = signal([
-    { id: '1', title: "Tr. Energy"},
-    { id: '2', title: "Tr. Physical"},
-    { id: '3', title: "Meditate"},
-    { id: '4', title: "Rest"},
-    { id: '5', title: "Explore"}
-  ])
+  // const actions = signal([
+  //   { id: '1', title: "Tr. Energy"},
+  //   { id: '2', title: "Tr. Physical"},
+  //   { id: '3', title: "Meditate"},
+  //   { id: '4', title: "Rest"},
+  //   { id: '5', title: "Explore"}
+  // ])
 
-  const actionlabel = actions.value.map(actionlab => {
-    return <SelectItem key={actionlab.id} value={actionlab.title}>{actionlab.title}</SelectItem>;
-    })
+  // const actionlabel = actions.values.map(actionlab => {
+  //   return <SelectItem key={actionlab.id} value={actionlab.title}>{actionlab.title}</SelectItem>;
+  //   })
 
   const handleChange = (e: {target: {value: string}}) => {
-    setAction(e.target.value);
+    useActionStore.setState({action: e.target.value})
   }
+
+  const logAction = () => {
+    const actionLog = useActionStore.getState().action;
+    // if (hourString == labelString) {
+    //   useActionStore.setState({action: ''})
+    // }
+  }
+
+  useEffect(() => {
+    logAction();
+  })
 
   return (
     <>
@@ -40,7 +57,7 @@ export default function Action ({inlab}: Props) {
     >
       <Select
         size="sm"
-        items={action}
+        items={useActionStore.getState().action}
         label={inlab}
         variant="faded"
         onChange={handleChange}

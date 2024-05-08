@@ -1,9 +1,9 @@
 "use client"
 
 import Link from "next/link";
-// import { ThemeSwitcher } from "./ThemeSwitch";
 import { usePathname } from "next/navigation";
 import TimeBar from "./TimeBar";
+import { ThemeSwitch } from "./ThemeSwitch";
 
 const ACTIVE_ROUTE = "py-1 px-2 text-gray-300 bg-gray-700";
 const INACTIVE_ROUTE = "py-1 px-2 text-gray-300 hover:text-gray-300 hover:bg-gray-700"
@@ -36,7 +36,7 @@ export default function Header() {
                 <Link href="/settings" className={pathname === "/settings" ? ACTIVE_ROUTE : INACTIVE_ROUTE}>Settings</Link>
 			</div>
 			<div className="flex">
-				{/* <ThemeSwitcher /> */}
+				<ThemeSwitch />
 			</div>
 		</div>
 		<TimeBar />
