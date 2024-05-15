@@ -11,11 +11,11 @@ const TaskManager = () => {
   if (planetName === "mars") {
     var planetHours = store.mars.map((mars) => {
         return <div key={mars.id}>
-          <Action inlab={mars.value}/></div>});
+          <Action inlab={mars.value} dex={mars.id}/></div>});
     } else {
       var planetHours = store.earth.map((earth) => {
         return <div key={earth.id}>
-          <Action inlab={earth.value}/></div>});
+          <Action inlab={earth.value} dex={earth.id}/></div>});
     }
 
   return (

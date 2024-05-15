@@ -4,6 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--background: grey;
+}
+
+[data-theme="dark"] {
+	--background: black;
+	--foreground: gey;
+}
+
+[data-theme="light"] {
+	--background: white;
+	--foreground: grey;
+}
+
 html,
 body,
 #root,

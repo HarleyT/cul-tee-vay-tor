@@ -1,4 +1,6 @@
 import { PlanetSelector } from "../components/PlanetSelector";
+import EarthBar from "../components/TestStore";
+
 
 export default function exploration() {
     
@@ -16,6 +18,9 @@ export default function exploration() {
                     </div>
                 </div>
                 <div className="box2">
+                    <div>
+                        <EarthBar />
+                    </div>
                 </div>
                 <div className="box3">
                 </div>                        

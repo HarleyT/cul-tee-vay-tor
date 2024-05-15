@@ -1,15 +1,18 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import useTimer from '../hooks/useTimer';
-import { useActionStore } from '../store/task-store';
+import usePlanetStore from '../store/task-store';
 
 const Animation = () => {
-    var hours = useTimer().planetIn;
-    var actionName = useActionStore.getState().action;
+  var index = useTimer().index;
+  var hours = useTimer().planetIn;
+  var actions = usePlanetStore.getState().earth[(index)]
 
   return (
-    <div className='animation'>{hours}{actionName}</div>
+    <>
+    <div className='animation'>{hours}{actions.value} {actions.action}</div>
+    </>
   )
 }
 

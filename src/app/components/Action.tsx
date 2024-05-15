@@ -1,19 +1,19 @@
 "use client"
 
-import { signal } from "@preact/signals";
 import {Select, SelectItem} from "@nextui-org/react";
 import useTimer from '../hooks/useTimer';
-import { useEffect, useState } from "react";
 import ReactDOMServer from 'react-dom/server';
-import { useActionStore } from "../store/task-store";
+import usePlanetStore, { useActionStore } from "../store/task-store";
+import { produce } from "immer";
 
 interface Props {
   inlab: string;
+  dex: number;
 }
 
-export default function Action ({inlab}: Props) {
+export default function Action ({inlab, dex}: Props) {
+  const store = usePlanetStore.getState()
   const actions = useActionStore.getState()
-  // const [action, setAction] = useState<string>('');
 
   var actionlabel = actions.actionList.map((list) => {
         return <SelectItem key={list.id} value={list.value}>{list.value}</SelectItem>
@@ -21,35 +21,28 @@ export default function Action ({inlab}: Props) {
 
   var hours = useTimer().planetIn;
 
+  var acts = useTimer().planetAct;
+
   var hourString = ReactDOMServer.renderToString(hours)
   const labelString = ("<div>" + inlab + "</div>")
 
-  // const actions = signal([
-  //   { id: '1', title: "Tr. Energy"},
-  //   { id: '2', title: "Tr. Physical"},
-  //   { id: '3', title: "Meditate"},
-  //   { id: '4', title: "Rest"},
-  //   { id: '5', title: "Explore"}
-  // ])
-
-  // const actionlabel = actions.values.map(actionlab => {
-  //   return <SelectItem key={actionlab.id} value={actionlab.title}>{actionlab.title}</SelectItem>;
-  //   })
-
-  const handleChange = (e: {target: {value: string}}) => {
-    useActionStore.setState({action: e.target.value})
-  }
-
-  const logAction = () => {
-    const actionLog = useActionStore.getState().action;
-    // if (hourString == labelString) {
-    //   useActionStore.setState({action: ''})
-    // }
-  }
-
-  useEffect(() => {
-    logAction();
-  })
+  const handleSelectionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    // console.log(Number(acts.key)-1),
+    // usePlanetStore.setState({selectEarthAction: (id, action) => {
+    //   id = (Number(e.target.value)-1),
+    //   action = useActionStore.getState().actionList[Number(e.target.value)-1].value
+    // }}),
+    produce(store.earth, draft => {
+      draft[(dex-1)].action = useActionStore.getState().actionList[Number(e.target.value)-1].value
+    })
+    // usePlanetStore.setState({selectEarthAction: (id, action) => {
+    //   id = (dex-1);
+    //   action = useActionStore.getState().actionList[Number(e.target.value)-1].value
+    // } }),
+    // usePlanetStore.setState((state: PlanetStore) => {
+    //   state.mars[(dex-1)].action = useActionStore.getState().actionList[Number(e.target.value)-1].value})
+    console.log(usePlanetStore.getState().earth[(dex-1)])
+  };
 
   return (
     <>
@@ -57,10 +50,10 @@ export default function Action ({inlab}: Props) {
     >
       <Select
         size="sm"
-        items={useActionStore.getState().action}
+        // items={useActionStore.getState().actionList}
         label={inlab}
         variant="faded"
-        onChange={handleChange}
+        onChange={handleSelectionChange}
         className='max-w-xs action-selection'
         style={ (hourString == labelString) ? {background:"green"} : {}}
       >

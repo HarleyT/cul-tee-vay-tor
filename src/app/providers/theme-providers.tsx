@@ -2,6 +2,7 @@
 
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { type ThemeProviderProps } from "next-themes/dist/types";
+import { Provider } from 'jotai';
 
 export function ThemeProviders({children, ...props}: ThemeProviderProps) {
 
@@ -9,7 +10,9 @@ export function ThemeProviders({children, ...props}: ThemeProviderProps) {
 
         <NextThemesProvider
         {...props}>
-          {children}
+          <Provider>
+            {children}
+          </Provider>
         </NextThemesProvider>
     )
   }

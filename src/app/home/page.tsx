@@ -2,7 +2,6 @@ import Animation from "../components/Animation";
 import TaskManager from "../components/TaskManager";
 import useTimer from "../hooks/useTimer";
 
-
 const realms = [
     'Mortal', 'Qi Sensing', 'Qi Movement', 'Qi Rotation'
 ];
