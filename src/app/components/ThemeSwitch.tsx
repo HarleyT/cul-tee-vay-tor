@@ -1,8 +1,7 @@
 import { useTheme } from 'next-themes'
-import { IconButton } from '@mui/material';
 import { useEffect, useState } from 'react';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import LightModeIcon from '@mui/icons-material/LightMode';
+import IconDark from './Icons/Dark';
+import IconLight from './Icons/Light';
 
 export const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false)
@@ -18,21 +17,23 @@ export const ThemeSwitch = () => {
 
   function themeButton(){
     if (theme === 'dark') {
-        setTheme('light')
-    } else {
         setTheme('dark')
+    } else if (theme === 'custom') {
+        setTheme('custom')
+    } else {
+        setTheme('light')
     }
 }
 
   return (
     <div>
-      <IconButton onClick={themeButton}>
+      <button onClick={themeButton}>
         {theme === 'dark' ? (
-          <DarkModeIcon />
+          <IconDark />
           ) : (
-              <LightModeIcon />
+              <IconLight />
           )}
-      </IconButton>
+      </button>
     </div>
   )
 }

@@ -1,13 +1,6 @@
 import { proxy, useSnapshot } from 'valtio'
 
-
-type Task = {
-    id: number;
-    value: string;
-    action: string;
-}
-
-export const PlanetStore = proxy<{
+interface Store {
     running: boolean;
     planet: string;
     earth: Task[];
@@ -16,8 +9,15 @@ export const PlanetStore = proxy<{
     mars: Task[];
     marsTime: number;
     marsIndex: number,
+}
 
-}>({
+type Task = {
+    id: number;
+    value: string;
+    action: string;
+}
+
+export const planetStore = proxy<Store>({
     running: true,
     planet: "earth",
     earth: [

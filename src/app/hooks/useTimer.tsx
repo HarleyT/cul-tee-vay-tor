@@ -1,11 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react";
-import usePlanetStore, { useActionStore } from '../store/task-store'
+import usePlanetStore from '../store/task-store'
 
 export default function useTimer() {
     const store = usePlanetStore();
-    // usePlanetStore().selectEarthAction(useActionStore().actionID,"dude")
 
     // Common //
     const running = usePlanetStore.getState().running;

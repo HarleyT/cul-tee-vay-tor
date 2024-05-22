@@ -2,17 +2,14 @@
 
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { type ThemeProviderProps } from "next-themes/dist/types";
-import { Provider } from 'jotai';
 
 export function ThemeProviders({children, ...props}: ThemeProviderProps) {
 
     return (
 
-        <NextThemesProvider
+        <NextThemesProvider themes={['light', 'dark', 'custom']}
         {...props}>
-          <Provider>
-            {children}
-          </Provider>
+          {children}
         </NextThemesProvider>
     )
   }

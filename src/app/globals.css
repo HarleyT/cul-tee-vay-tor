@@ -1,21 +1,30 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* 
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"); */
+
+/* Smartphones (portrait and landscape) ----------- */
+/* @media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+} */
 
 :root {
-	--background: grey;
-}
+	[data-theme="dark"] {
+		--background: black;
+		--foreground: gey;
+	}
 
-[data-theme="dark"] {
-	--background: black;
-	--foreground: gey;
-}
+	[data-theme="light"] {
+		--background: white;
+		--foreground: grey;
+	}
 
-[data-theme="light"] {
-	--background: white;
-	--foreground: grey;
+	[data-theme="custom"] {
+		--background: blue;
+		--foreground: purple;
+	}
 }
 
 html,
@@ -23,12 +32,30 @@ body,
 #root,
 .app,
 .content {
-	width: 1080px;
-	height: 100%;
+	max-height: 100%;
 	font-family: 'Open Sans', sans-serif;
+	container-type: inline-size;
 }
 
+/* @container (width <= 480px) {
+	.navbar{
+		content-visibility: hidden;
+	}
+	.navbarMob{
+		content-visibility: visible;
+	}
+}
+
+@container (width >= 481px) {
+	.navbarMob{
+		content-visibility: hidden;
+	}
+} */
+
+
 .navbar {
+	display: flex;
+	justify-content: space-between;
 	text-decoration: none;
 	font-family: 'Courier New', Courier, monospace;
 	font-size: small;
@@ -153,7 +180,7 @@ footer {
 
 /* Box 2 Container */
 .action {
-	min-width: 130px;
+	width: 130px;
 }
 
 /* .action-selection:focus {
@@ -174,6 +201,7 @@ footer {
 
 .steps-container {
 display: flex;
+flex: wrap;
 width: 100%;
 align-items: center;
 justify-content: space-between;
@@ -182,6 +210,7 @@ margin: 0 10px 0 10px;
 }
 .steps-container .step-circle {
 display: flex;
+flex: wrap;
 align-items: center;
 justify-content: center;
 height: 20px;
@@ -202,6 +231,7 @@ color: #4070f4;
 }
 .steps-container .progress-bar-container {
 position: absolute;
+flex: wrap;
 height: 4px;
 width: 100%;
 background: #e0e0e0;
@@ -209,6 +239,7 @@ z-index: -1;
 }
 .progress-bar-container .progress-indicator {
 position: absolute;
+flex: wrap;
 height: 100%;
 max-width: 100%;
 background: #4070f4;

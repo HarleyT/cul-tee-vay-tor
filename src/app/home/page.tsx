@@ -18,7 +18,6 @@ const locations = [
 const locationLabel = locations[0];
 
 export default function home() {
-    useTimer;
 
     return (
         <>
@@ -35,7 +34,7 @@ export default function home() {
                     <div className="planet-selection">
                     </div>
                     <div className="animation-box">
-                        <Animation />
+                        {/* <Animation /> */}
                     </div>
                     <div className="task-manager">
                         <TaskManager />
