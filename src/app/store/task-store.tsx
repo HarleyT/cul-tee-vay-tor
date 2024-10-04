@@ -21,8 +21,8 @@ export type PlanetState = {
     marsTime: number;
     marsIndex: number,
     running: boolean;
-    selectEarthAction: (id: number, item: string) => any;
-    selectMarsAction: (id: number, item: string) => any;
+    selectEarthAction: (hourID: number, item: string) => any;
+    selectMarsAction: (hourID: number, item: string) => any;
 }
 
 export const usePlanetStore = create<PlanetState>()(
@@ -81,22 +81,28 @@ export const usePlanetStore = create<PlanetState>()(
             marsTime: 500,
             marsIndex: 11,
             running: true,
-            selectEarthAction: (hourID: number, item: string) => {
+            // selectEarthAction: (hourID: number, item: string) => {
+            //     set(
+            //         produce((state) => {
+            //             state.earth[hourID].action = item
+            //         })
+            //     )
+            // },
+            selectEarthAction: (hourID: number, item: string) => 
                 set(
-                    produce((state) => {
-                        state.earth.hour0.action = item
+                    produce((state) => ({
+                        earth: { ...state.earth, action: state.earth[hourID].action = item}
                     })
-                )
-            },
-            selectMarsAction: (id: number, item: string) => {
+                )),
+            selectMarsAction: (hourID: number, item: string) => {
                 set(
                     produce((state) => {
-                        state.mars[id].action = item
+                        state.mars[hourID].action = item
                     })
                 )
             }
         }),
-            { name: 'planetStore'},
+            { name: 'PlanetState'},
         ),
     ),
 )

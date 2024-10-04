@@ -2,18 +2,15 @@
 
 import Link from "next/link";
 import TimeBar from "./TimeBar";
-import MobileDrawer from "./Mobile/MobileHeader";
-
+import IconLogo from "./Icons/Logo";
 
 
 export default function Header() {
 	
 	return (
 		<>
-			<div className="navbar">
-				{/* <a href="https://github.com/HarleyT/cultivator-incremental">
-					<img src="/assets/golden.png" alt="Cultivator Incremental" />
-				</a> */}
+			<div className="navbar sm:flex">
+				<IconLogo />
 				<Link href="/home">Home</Link>
 				<Link href="/combat">Combat</Link>
 				<Link href="/character">Character</Link>
@@ -24,10 +21,7 @@ export default function Header() {
 				<Link href="/trainingPhysical">TrainingPhysical</Link>
 				<Link href="/trainingEnergy">TrainingEnergy</Link>
 				<Link href="/settings">Settings</Link>
-			</div>
-			{/* <div className="navbarMob">
-				<MobileDrawer />
-			</div> */}
+				</div>
 			<TimeBar />
 		</>
 	);

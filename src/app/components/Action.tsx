@@ -13,7 +13,6 @@ interface Props {
 }
 
 export default function Action ({inlab, dex, act}: Props) {
-  const store = usePlanetStore.getState()
   const actions = useActionStore.getState()
 
   var actionlabel = actions.actionList.map((list) => {

@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"); */
 
@@ -50,8 +51,16 @@ body,
 	.navbarMob{
 		content-visibility: hidden;
 	}
+}
+
+.navbarMob {
+	display: flex;
 } */
 
+/* .logo {
+	min-width: 20px;
+	max-width: 20px;
+} */
 
 .navbar {
 	display: flex;
@@ -59,6 +68,8 @@ body,
 	text-decoration: none;
 	font-family: 'Courier New', Courier, monospace;
 	font-size: small;
+	align: center;
+	gap: 10px;
 	padding: 10px 10px;
 	opacity: 0.6;
 	background: grey;

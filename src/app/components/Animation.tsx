@@ -1,8 +1,9 @@
 "use client"
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import useTimer from '../hooks/useTimer';
 import usePlanetStore from '../store/task-store';
+import TestStoreInfo from './TestStoreInfo';
 
 const Animation = () => {
   var index = useTimer().index;
@@ -11,7 +12,7 @@ const Animation = () => {
 
   return (
     <>
-    <div className='animation'>{hours}{actions.value} {actions.action}</div>
+    <div className='animation'>{hours}<TestStoreInfo /></div>
     </>
   )
 }

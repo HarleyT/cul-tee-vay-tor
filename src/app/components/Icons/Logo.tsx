@@ -8,10 +8,10 @@ export default function IconLogo() {
 
     return (
         <>
-            <div>
-                <Image height={40} width={40}
+            <div className="logo min-w-max">
+                <Image width={30}
                 src={Logo}
-                alt="Light Mode"/>                    
+                alt="Logo"/>                    
             </div>
         </>
     )

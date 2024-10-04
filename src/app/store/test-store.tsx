@@ -31,7 +31,7 @@ type SolSystemEarth = {
         hour22: {id: number, value: string, action: string, active: boolean},
         hour23: {id: number, value: string, action: string, active: boolean}
     },
-    days: number,
+    totalhours: number,
     interval: number,
     running: boolean
 }
@@ -51,10 +51,20 @@ type SolSystemMars = {
         hour8: {id: number, value: string, action: string, active: boolean},
         hour9: {id: number, value: string, action: string, active: boolean}
     },
-    days: number,
+    totalhours: number,
     interval: number,
     running: boolean
     }
+
+export type Selection = {
+    planet: string
+}
+
+export const usePlanetSelect = create<Selection>(
+    (set) => ({
+        planet: "earth"
+    })
+)
 
 export const useTestStoreEarth = create<SolSystemEarth>(
     (set) => ({
@@ -86,7 +96,7 @@ export const useTestStoreEarth = create<SolSystemEarth>(
             hour22: {id: 22, value: "22:00", action: "", active: false},
             hour23: {id: 23, value: "23:00", action: "", active: false}
         },
-        days: 24,
+        totalhours: 24,
         interval: 1000,
         running: false
         }
@@ -108,10 +118,10 @@ export const useTestStoreMars = create<SolSystemMars>(
             hour8: {id: 8, value: "08:00", action: "", active: false},
             hour9: {id: 9, value: "09:00", action: "", active: false}
         },
-        days: 10,
+        totalhours: 10,
         interval: 500,
         running: false
         }
 ))
 
-export default useTestStoreEarth; useTestStoreMars;
+export default useTestStoreEarth; useTestStoreMars; usePlanetSelect;

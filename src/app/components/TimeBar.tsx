@@ -1,10 +1,10 @@
 "use client"
 
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import PauseIcon from '@mui/icons-material/Pause';
 import usePlanetStore from "../store/task-store";
 import useTimer from "../hooks/useTimer";  
 import { IconButton } from '@mui/material';
+import IconPlay from './Icons/Play';
+import IconPause from './Icons/Pause';
 
 export default function TimeBar() {
     const planetName = useTimer().planetName;
@@ -35,9 +35,9 @@ export default function TimeBar() {
 		<div className="nav-hours">
             <IconButton onClick={playButton}>
                 {usePlanetStore.getState().running === true ? (
-                <PlayArrowIcon />
+                <IconPlay />
             ) : (
-                <PauseIcon />
+                <IconPause />
             )}</IconButton>
             <div className="steps-container">
                 {hoursint.map((stepNumber) => (
@@ -50,14 +50,14 @@ export default function TimeBar() {
                     </span>
                     </span>
                 ))}
-                <div className="progress-bar-container">
+                {/* <div className="progress-bar-container">
                     <span
                     className="progress-indicator"
                     style={{
                         width: `${((indexvalue) / (indexlength-1)) * 100}%`,
                     }}
                     ></span>
-                </div>
+                </div> */}
             </div>
             <div className="p-2">
                 {hours}

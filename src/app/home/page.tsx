@@ -1,6 +1,5 @@
 import Animation from "../components/Animation";
 import TaskManager from "../components/TaskManager";
-import useTimer from "../hooks/useTimer";
 
 const realms = [
     'Mortal', 'Qi Sensing', 'Qi Movement', 'Qi Rotation'
@@ -34,7 +33,7 @@ export default function home() {
                     <div className="planet-selection">
                     </div>
                     <div className="animation-box">
-                        {/* <Animation /> */}
+                        <Animation />
                     </div>
                     <div className="task-manager">
                         <TaskManager />

@@ -2,7 +2,7 @@ import React from "react";
 import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
 import IconLogo from "../Icons/Logo";
 
-export default function App() {
+export default function MobileDrawer() {
   const menuItems = [
     "Profile",
     "Dashboard",
